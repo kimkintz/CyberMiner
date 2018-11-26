@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style>
+        .searchbar {
+            margin-top: 10px;
+        }
+
+        .inline-radio {
+            margin-left: 30px;
+        }
+
+        .small-num-input {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row searchbar">
+            <div class="col-4">
+                <h1>CyberMiner</h1>
+            </div>
+            <div class="col-8">
+                <form id="search">
+                    <div class="input-group mb-3">
+                        <input id="textIn" type="text" name="input" value="" size="50" class="form-control">
+                        <span class="input-group-btn input-group-append">
+                            <input class="btn btn-primary" type="submit" value="Search">
+                        </span>
+                    </div>
+                </form>
+                <button id="modal-btn" type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
+                    Search options
+                </button>
+                <a href="KWICIndex.html" class="btn btn-light">Index lines</a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div id="searchresults"></div>
+                <div id="pagebuttons" class="text-center"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Search options</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="checkbox" name="case-sensitive">
+                    <label>Case sensitive search</label>
+                    <br />
+
+                    <label>Sort by: </label>
+                    <input type="radio" class="inline-radio" name="sort" value="alpha" checked="checked">
+                    <label>Alphabetical</label>
+                    <input type="radio" class="inline-radio" name="sort" value="frequently-accessed">
+                    <label>Most frequently accessed</label>
+                    <br />
+
+                    <label>Number of items per page: </label>
+                    <input class="small-num-input" type="text" name="items-per-page" value="10">
+                    <br />
+
+                    <label>Noise words: </label>
+                    <input type="text" name="noise">
+                </div>
+                <div class="modal-footer">
+                    <button id="config" class="btn btn-primary" data-dismiss="modal">Apply Options</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="configtest">
+    </div>
+
+    <script src="jquery-3.3.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="Entry.js"></script>
+    <script src="Configuration.js"></script>
+    <script src="Display.js"></script>
+    <script src="testdisplay.js"></script>
+    <script src="LineStorage.js"></script>
+    <script src="kwicController.js"></script>
+    <script src="CircularShift.js"></script>
+    <script src="Alpha.js"></script>
+    <script src="NoiseEliminator.js"></script>
+    <script src="CyberMinerController.js"></script>
+    <script src="databaseController.js"></script>
+</body>
+
+</html>
